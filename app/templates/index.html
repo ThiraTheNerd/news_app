@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% if title %}
+  <title> {{ title }}</title>
+  {% else %}
+  <title> Welcome to the best Movie Review website </title>
+  {% endif %}
+</head>
+<body>
+  <!--News sources section-->
+  <h3>Our Sources</h3>
+  <ul>
+    {% for source in news_source %}
+    <li>{{ source.name }}</li>
+    {% endfor %}
+  </ul>
+  
+</body>
+</html>
