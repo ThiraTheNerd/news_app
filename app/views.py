@@ -10,7 +10,6 @@ def index():
   '''
   #Getting news sources
   sources = get_news('sources')
-  print(sources)
   title = 'Home - Welcome to the best News website online'
 
   return render_template('index.html', title = title, news_source = sources)
