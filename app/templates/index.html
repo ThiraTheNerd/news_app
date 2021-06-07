@@ -2,11 +2,17 @@
 {% block content %}
   <!--News sources section-->
   <h3>Our Sources</h3>
-  <ul>
-    {% for source in news_source %}
-    <li>{{ source.name }}</li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        {% for source in news_source %}
+        <div class="alert alert-secondary" role="alert">
+          <a href="#" class="alert-link">{{ source.name }}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
   
 
