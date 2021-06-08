@@ -95,9 +95,10 @@ def process_sources(sources_list):
     urlToImage = source_item.get('urlToImage')
     publishedAt= source_item.get('publishedAt')
 
-    source_object = Article(source, author,title, description, url, urlToImage, publishedAt)
-    print(source_object)
-    sources_results.append(source_object)
+    if source["id"]:
+      source_object = Article(source, author,title, description, url, urlToImage, publishedAt)
+      print(source_object)
+      sources_results.append(source_object)
 
   return sources_results
 
