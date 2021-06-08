@@ -9,8 +9,6 @@ def index():
   '''
   View function to display the index page and its data
   '''
-  
-
   source = get_news()
   title = 'Home - Welcome to the best News website online'
   search_news = request.args.get('news_query')
