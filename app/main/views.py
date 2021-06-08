@@ -12,7 +12,7 @@ def index():
   source = get_news()
   title = 'Home - Welcome to the best News website online'
   search_news = request.args.get('news_query')
-  print(search_news)
+  
 
   if search_news:
     return redirect(url_for('.search', news_name = search_news))
