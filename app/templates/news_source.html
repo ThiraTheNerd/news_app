@@ -1,27 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% for specific_source in specific_sources %}
-<p>specific_source.source</p>
-{% endfor %}
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h3>{{ specific_source.source}}</h3>
+      
       {% for specific_source in specific_sources%}
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="{{source.urlToImage}}" width="150" height="100" alt="..." >
+            <img src="{{specific_source.urlToImage}}" width="150" height="100" alt="..." >
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">
-                <a href="#" class="alert-link">{{ source.source['name'] }}</a></h5>
-              <a href="{{source.url}}">
-                <p class="card-text">{{source.title}}</p>
+                <a href="#" class="alert-link">{{ specific_source.source['name'] }}</a></h5>
+              <a href="{{specific_source.url}}">
+                <p class="card-text">{{specific_source.title}}</p>
               </a>
-              <p class="card-text"><small class="text-muted">{{source.publishedAt}}</small></p>
+              <p class="card-text"><small class="text-muted">{{specific_source.publishedAt}}</small></p>
             </div>
           </div>
         </div>
@@ -33,6 +30,6 @@
       
     </div>
   </div>
-</div> -->
+</div>
 
-{% endblock content %}
+{% endblock %}

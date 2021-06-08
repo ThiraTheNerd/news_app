@@ -9,6 +9,7 @@ class Config:
     TOP_HEADLINES_URL  = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
     SOURCE_URL = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
     CATEGORIES_BASE_URL= 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey={}'
+    SEARCH_NEWS_URL='https://newsapi.org/v2/everything?q={}&apiKey={}'
     
 
 
