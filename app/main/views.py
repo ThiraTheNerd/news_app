@@ -9,8 +9,7 @@ def index():
   '''
   View function to display the index page and its data
   '''
-  #Getting news sources
-  # sources = get_news('sources')
+  
 
   source = get_news()
   title = 'Home - Welcome to the best News website online'
