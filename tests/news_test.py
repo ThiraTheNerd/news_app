@@ -1,11 +1,9 @@
 import unittest
-from models import news
-
-News = news.News
+from app.models import Source
 
 class NewsTest(unittest.TestCase):
   '''
-  Test Class to test the behaviour of the Movie class
+  Test Class to test the behaviour of the news class
   '''
   def setUp(self):
     '''
@@ -18,7 +16,5 @@ class NewsTest(unittest.TestCase):
     '''
     Tests whether the news object is instantiated correctly
     '''
-    self.assertTrue(instance(self.new_news, Movie))
+    self.assertTrue(instance(self.new_news, Source))
 
-if __name__ == '__main__':
-  unittest.main()
