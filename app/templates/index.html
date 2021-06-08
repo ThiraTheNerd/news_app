@@ -1,32 +1,22 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 {% block content %}
   <!--News sources section-->
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <h3>Top Headlines</h3>
-        {% for source in sources%}
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{source.urlToImage}}" width="150" height="100" alt="..." >
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <a href="/sources/{{ source.source['id'] }}" class="alert-link">{{ source.source['name'] }}</a></h5>
-                <a href="{{source.url}}">
-                  <p class="card-text">{{source.description}}</p>
-                </a>
-                <p class="card-text"><small class="text-muted">{{source.publishedAt}}</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+        {{macro.displayNewsList(sources)}}
       </div>
       <div class="col-md-4">
         <h2>Column 2</h2>
+        
+          <form>
+              <input type="text" name="news_query" placeholder="Search for news" class="form-control">
+              <input type="submit"  value="Submit" class="btn btn-success" style="margin-top: 5px;">
+          </form>
+        
+      </div>
 
       </div>
 

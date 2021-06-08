@@ -1,5 +1,5 @@
 import urllib.request, json
-from .models import Source,Article
+from .models import Article
 
 #Getting the API_KEY
 api_key = None
@@ -14,16 +14,16 @@ topheadlines_url = None
 #Getting the sources url
 source_url = None
 #Getting the search news url
-search_new_url = None
+search_news_url = None
 
 def configure_request(app):
-  global api_key, base_url, categories_url, topheadlines_url, source_url
+  global api_key, base_url, categories_url, topheadlines_url, source_url,search_news_url
   api_key = app.config['NEWS_API_KEY']
   base_url = app.config["NEWS_API_BASE_URL"]
   categories_url = app.config['CATEGORIES_BASE_URL']
   topheadlines_url = app.config['TOP_HEADLINES_URL']
   source_url = app.config['SOURCE_URL']
-  search_new_url = app.config['SEARCH_NEWS_URL']
+  search_news_url = app.config['SEARCH_NEWS_URL']
 
 
 def get_news():
@@ -56,15 +56,15 @@ def process_results(news_list):
   news_sources = []
   for news_source in news_list:
     source = news_source.get('source')
-    title = news_source.get('title')
     author = news_source.get('author')
+    title = news_source.get('title')
     description = news_source.get('description')
     url = news_source.get('url')
     urlToImage= news_source.get('urlToImage')
     publishedAt = news_source.get('publishedAt')
 
-    if source["id"]:
-      news_source_object = Source(source, author,title, description, url, urlToImage, publishedAt)
+    if source["id"] & urlToImage:
+      news_source_object = Article(source, author,title, description, url, urlToImage, publishedAt)
       news_sources.append(news_source_object)
   
   return news_sources
@@ -95,13 +95,14 @@ def process_sources(sources_list):
     urlToImage = source_item.get('urlToImage')
     publishedAt= source_item.get('publishedAt')
 
-    source_object = Source(source, author,title, description, url, urlToImage, publishedAt)
+    source_object = Article(source, author,title, description, url, urlToImage, publishedAt)
+    print(source_object)
     sources_results.append(source_object)
 
   return sources_results
 
-def news_search(name):
-  news_url= search_new_url.format(name,api_key)
+def news_search(news_name):
+  news_url= search_news_url.format(news_name,api_key)
 
   with urllib.request.urlopen(news_url) as url:
     get_news_data = url.read()

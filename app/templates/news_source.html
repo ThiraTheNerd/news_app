@@ -1,29 +1,12 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 {% block content %}
 
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      
-      {% for specific_source in specific_sources%}
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="{{specific_source.urlToImage}}" width="150" height="100" alt="..." >
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="#" class="alert-link">{{ specific_source.source['name'] }}</a></h5>
-              <a href="{{specific_source.url}}">
-                <p class="card-text">{{specific_source.title}}</p>
-              </a>
-              <p class="card-text"><small class="text-muted">{{specific_source.publishedAt}}</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+      <h3>Specific Source News</h3>
+        {{macro.displayNewsList(specific_sources)}}
     </div>
     <div class="col-md-4">
       <h2>Column 2</h2>
