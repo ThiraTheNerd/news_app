@@ -1,6 +1,6 @@
 from flask import Flask,render_template,redirect,url_for,request
 from . import main
-from ..request import get_news, get_source,news_search
+from ..request import get_news,get_source,news_search
 from ..models import Article
 
 #Views
