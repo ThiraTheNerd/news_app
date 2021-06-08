@@ -31,7 +31,6 @@ def search(news_name):
 
 @main.route('/sources/<name>')
 def source(name):
-
   specific_sources = get_source(name)
   title = f'{name}'
 
