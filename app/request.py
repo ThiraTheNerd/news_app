@@ -115,8 +115,6 @@ def news_search(news_name):
       searched_news_list = get_news_response['articles']
       searched_news = process_results(searched_news_list)
   return searched_news
-    
-
 
 def process_results(news_list):
   '''
